@@ -1,7 +1,8 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
-import { Link } from 'react-router-dom';
+import StyledLink from '../../components/StyledLink';
 import { GET_CONTINENTS } from '../../GraphQL/Queries';
+import { Wrapper, Card, Name } from './ContinentsList.style';
 
 interface ContinentsProps {
     continents: [
@@ -16,17 +17,18 @@ const ContinentsList = () => {
     const { data } = useQuery<ContinentsProps>(GET_CONTINENTS);
 
     return (
-        <div>
+        <Wrapper>
             {data
                 ? data.continents.map((item) => (
-                      <div>
-                          <Link to={`/continents/${item.code.toLowerCase()}`}>
-                              <div>{item.name}</div>
-                          </Link>
-                      </div>
+                      <StyledLink to={`/continents/${item.code}`}>
+                          <Card>
+                              <Name>{item.name}</Name>
+                              <div>{item.code}</div>
+                          </Card>
+                      </StyledLink>
                   ))
                 : 'Loading...'}
-        </div>
+        </Wrapper>
     );
 };
 

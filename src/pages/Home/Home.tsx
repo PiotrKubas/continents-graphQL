@@ -1,11 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import StyledLink from '../../components/StyledLink';
+import { Wrapper, Title } from './Home.style';
 
 const Home = () => {
     return (
-        <Link to="/continents">
-            <div>Go to continent list</div>;
-        </Link>
+        <Wrapper>
+            <StyledLink to="/continents">
+                <Title>Go to continent list</Title>
+            </StyledLink>
+        </Wrapper>
     );
 };
 
