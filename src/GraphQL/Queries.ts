@@ -8,3 +8,19 @@ export const GET_CONTINENTS = gql`
         }
     }
 `;
+
+export const GET_CONTINENT_INFO = gql`
+    query getContinent($code: ID!) {
+        continent(code: $code) {
+            name
+            code
+            countries {
+                name
+                emoji
+                languages {
+                    name
+                }
+            }
+        }
+    }
+`;

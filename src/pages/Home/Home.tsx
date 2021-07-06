@@ -1,7 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
-    return <div>Go to continent list</div>;
+    return (
+        <Link to="/continents">
+            <div>Go to continent list</div>;
+        </Link>
+    );
 };
 
 export default Home;
